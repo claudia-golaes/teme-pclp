@@ -1,20 +1,20 @@
-# Text Highlight
+## Text Highlight
 
-Chiar dacă scrierea codului poate părea câteodată o acțiune uşoară, aceasta implică multe cunoştințe teoretice cât şi foarte multă practică, mai ales în scrierea de programe complexe. Astfel, pentru a veni în ajutorul utilizatorilor, s-a creat highlighting-ul pe text, ceea ce înseamnă că vor exista cuvinte cheie precum "for", "while", "int", "float" care vor fi scoase în evidență pentru o înțelegere mai uşoară a codului. În această problemă ne propunem să simulăm facilitatea de TextHighlight.
+Even though writing code might sometimes seem like an easy task, it involves a lot of theoretical knowledge and a great deal of practice, especially when dealing with complex programs. Therefore, to assist users, text highlighting has been created, which means keywords such as "for", "while", "int", "float" will be emphasized for easier understanding of the code. In this problem, we aim to simulate the TextHighlight feature.
 
-Pentru a putea simula highlighting-ul pe text, vom “sublinia” keyword-urile întâlnite pe linia următoare. Sublinierea unui keyword se va face folosind caracterul `_` (underline) pentru fiecare caracter al cuvântului respectiv (incluzând spațiile în cazul keyword-urilor formate din mai multe cuvinte), iar pentru restul caracterelor care nu fac parte din cuvintele cheie se va folosi ` ` (spațiu). 
+To simulate text highlighting, we will "underline" encountered keywords on the next line. Each character of the keyword will be underlined using the `_` character (including spaces for multi-word keywords), and for other characters that are not part of the keywords, we will use a space ` `.
 
-**Atenţie!** Deoarece multe programe permit scrierea de secvențe cheie formate din mai multe cuvinte cu un număr variabil de spații între ele, pentru problema noastră va fi luat în calcul şi acest caz! Evitați, totuși, să scrieți cod în acest fel, deoarece devine greu de înțeles si trebuie respectat un coding style.
+**Note:** Since many programs allow writing key sequences formed by multiple words with a variable number of spaces between them, this case will also be considered. However, avoid writing code in this manner as it becomes hard to understand and violates coding style guidelines.
 
-Pentru această temă vom considera drept cuvinte cheie (keywords) doar următoarele cuvinte şi secvenţe de două cuvinte: `first of`, `for`, `for each`, `from`, `in`, `is`, `is a`, `list of`, `unit`, `or`, `while`, `int`, `float`, `double`, `string`.
+For this task, we consider the following words and two-word sequences as keywords: `first of`, `for`, `for each`, `from`, `in`, `is`, `is a`, `list of`, `unit`, `or`, `while`, `int`, `float`, `double`, `string`.
 
 ---
 
-# Autocomplete
+## Autocomplete
 
-Autocomplete-ul este o funcționalitate des folosită. Deși aceasta ajută în teorie la economisirea timpului, poate genera și greșeli, depinzând de modul în care este folosită. Cu timpul, mare parte dintre probleme au fost rezolvate și autocomplete-ul ajută aproape în fiecare caz, printre cele mai utile și folosite fiind autocomplete-ul căutării pe Google. Acest autocomplete este totuși destul de complex, folosind atât căutările precedente ale utilizatorului curent, a celorlalți utilizatori, keyword-urile paginilor existente pe Google, cât și cele mai populare căutări.
+Autocomplete is a widely used functionality. Although it theoretically helps save time, it can also lead to errors depending on how it is used. Over time, many issues have been resolved, and autocomplete is useful in almost every case. One of the most useful and used forms is Google search autocomplete. However, this autocomplete is quite complex, using not only the current user's previous searches but also those of other users, keywords from existing Google pages, and the most popular searches.
 
-Astfel, în această problemă ne propunem să implementăm un autocomplete care pornește de la un anumit număr de cuvinte (un mini-dicționar) și care se actualizează odată cu introducerea unor cuvinte noi sau folosirea celor recente. Fiecare cuvânt din dicționar va avea la început prioritatea 0 și va fi reprezentat sub forma aceasta:
+Therefore, in this problem, we aim to implement an autocomplete starting from a certain number of words (a mini-dictionary) and updating it with the introduction of new words or the use of recent ones. Each word in the dictionary will initially have a priority of 0 and will be represented as follows:
 
 ```c
 struct dictionary_entry {
@@ -23,46 +23,46 @@ struct dictionary_entry {
 };
 ```
 
-Fiecare cuvânt scris de utilizator poate fi încadrat în una dintre următoarele 3 categorii:
+Each word typed by the user can fall into one of the following 3 categories:
 
-- **cuvânt** - nu există nicio potrivire în dicționar, deci va fi reprodus în output exact cum a fost introdus și va fi adăugat cu prioritatea 1 în dicționar, deoarece este prima sa apariție în text.
+- **word** - there is no match in the dictionary, so it will be output exactly as entered and added with a priority of 1 to the dictionary, as it is its first appearance in the text.
 
-- **cuvânt\*** - se potrivește cu un cuvânt din dicționar care are o prioritate mai mare, dar utilizatorul dorește să utilizeze forma sa proprie, deși are o prioritate mai mică (cuvântul poate sau nu exista în dicționar, în acest caz va fi adăugat). Va fi afișat cuvântul și îi va crește prioritatea.
+- **word\*** - it matches a word in the dictionary that has a higher priority, but the user prefers to use their own form, despite its lower priority (the word may or may not exist in the dictionary, in which case it will be added). The word will be displayed, and its priority will be increased.
 
-- **cuv** - se potrivește cu unul sau mai multe cuvinte din dicționar (care încep cu cuv) și se va selecta cel care are cea mai mare prioritate. De asemenea, prioritatea cuvântului selectat din dicționar va crește.
+- **word** - it matches one or more words in the dictionary (starting with the word), and the one with the highest priority will be selected. Additionally, the priority of the selected word from the dictionary will increase.
 
-**Observație:** În cazul în care există cuvinte în dicționar cu aceeași prioritate și se caută o potrivire pentru un cuvânt dat, va fi selectat cuvântul considerat cel mai apropiat în ordine lexicografică. Spre exemplu, căutăm potrivire pentru „abc” și avem două posibilități în dicționar: „abcde” cu prioritatea 2 și „abce” tot cu prioritatea 2. Va fi selectat cuvântul „abcde”, deoarece este mai mic decât „abce”.
+**Note:** If there are words in the dictionary with the same priority and a match is sought for a given word, the word considered closest in lexicographical order will be selected. For example, if searching for a match for "abc" and the dictionary has "abcde" with priority 2 and "abce" also with priority 2, "abcde" will be selected because it is smaller than "abce".
 
 ---
 
-# Calculator pe biți
+# Bitwise Calculator
 
-A treia funcționalitate implementată este un calculator pentru operații pe biți. Acesta este foarte simplu și suportă până la 4 operații consecutive, pe numere de 4 biți.
+The third functionality implemented is a bitwise calculator supporting operations on 4-bit numbers. It is straightforward and supports up to 4 consecutive operations.
 
-Numerele și operațiile sunt extrase dintr-un unsigned int, introdus de la tastatură, cu forma:
+Numbers and operations are extracted from an unsigned int entered via the keyboard, with the following format:
 
-- Numerele sunt reprezentate pe câte 4 biți.
-- Operațiile sunt reprezentate pe câte 2 biți, având următoarea codificare:
+- Numbers are represented in 4 bits.
+- Operations are represented in 2 bits, encoded as follows:
 
-| Operație         | Codificare |
-| ---------------- | ---------- |
-| Adunare          | 00         |
-| Interschimbare   | 01         |
-| Rotație la stânga | 10         |
-| XOR              | 11         |
+| Operation         | Encoding |
+| ----------------- | -------- |
+| Addition          | 00       |
+| Swap              | 01       |
+| Left Rotation     | 10       |
+| XOR               | 11       |
 
-### Adunare
+### Addition
 
-Rezultatul acestei operații va fi suma celor două numere pe 4 biți. Spre exemplu, după aplicarea operației de adunare pentru `0001` și `0101`, rezultatul va fi `0110`.
+The result of this operation will be the sum of the two numbers represented in 4 bits. For example, after applying the addition operation to `0001` and `0101`, the result will be `0110`.
 
-### Interschimbare
+### Swap
 
-În cazul acestei operații, bitul de pe poziția p1 va fi interschimbat cu bitul de pe poziția p2 pentru primul număr, unde p1 reprezintă primii 2 biți din al doilea număr, iar p2 reprezintă ultimii doi biți din al doilea număr. De exemplu, aplicând operația de interschimbare pentru `0001` și `1100`, rezultatul va fi `1000`. Bitul de pe poziția 11 = 3 (ultimul bit din primul număr) va fi interschimbat cu bitul de pe poziția 00 = 0 (primul bit din primul număr).
+In this operation, the bit at position p1 is swapped with the bit at position p2 for the first number. Here, p1 represents the first 2 bits from the second number, and p2 represents the last 2 bits from the second number. For example, applying the swap operation to `0001` and `1100` results in `1000`. The bit at position 11 (3, the last bit of the first number) will be swapped with the bit at position 00 (0, the first bit of the first number).
 
-### Rotație la stânga
+### Left Rotation
 
-Aplicând această operație pe două numere, nr1 și nr2, rezultatul va fi nr1 rotit la stânga de nr2 ori. De exemplu, aplicând operația de rotație pentru `1011` și `0101` = 5, rezultatul va fi `0111`.
+Applying this operation to two numbers, nr1 and nr2, results in nr1 being rotated left by nr2 times. For example, applying the rotation operation to `1011` and `0101` (5) results in `0111`.
 
 ### XOR
 
-Rezultatul acestei operații va fi aplicarea operatorului XOR asupra celor două numere pe 4 biți. Spre exemplu, după aplicarea operației XOR pentru `1011` și `0101`, rezultatul va fi `1110`.
+The result of this operation will be the XOR of the two 4-bit numbers. For example, after applying the XOR operation to `1011` and `0101`, the result will be `1110`.
