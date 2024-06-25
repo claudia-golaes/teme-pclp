@@ -1,3 +1,5 @@
+# Homework Programming 1st year
+---
 ## Text Highlight
 
 Even though writing code might sometimes seem like an easy task, it involves a lot of theoretical knowledge and a great deal of practice, especially when dealing with complex programs. Therefore, to assist users, text highlighting has been created, which means keywords such as "for", "while", "int", "float" will be emphasized for easier understanding of the code. In this problem, we aim to simulate the TextHighlight feature.
@@ -35,7 +37,7 @@ Each word typed by the user can fall into one of the following 3 categories:
 
 ---
 
-# Bitwise Calculator
+## Bitwise Calculator
 
 The third functionality implemented is a bitwise calculator supporting operations on 4-bit numbers. It is straightforward and supports up to 4 consecutive operations.
 
