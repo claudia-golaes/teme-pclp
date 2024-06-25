@@ -35,7 +35,7 @@ Fiecare cuvânt scris de utilizator poate fi încadrat în una dintre următoare
 
 ---
 
-## Calculator pe biți
+# Calculator pe biți
 
 A treia funcționalitate implementată este un calculator pentru operații pe biți. Acesta este foarte simplu și suportă până la 4 operații consecutive, pe numere de 4 biți.
 
