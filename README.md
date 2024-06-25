@@ -21,6 +21,7 @@ struct dictionary_entry {
     char* word;
     int priority;
 };
+```c
 
 Fiecare cuvânt scris de utilizator poate fi încadrat în una dintre următoarele 3 categorii:
 
